@@ -1,0 +1,70 @@
+# ===================================
+# 📦 Node.js / npm
+# ===================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===================================
+# 🗂️ Build and Output Files
+# ===================================
+dist/
+build/
+.cache/
+.vscode/
+.DS_Store
+
+# ===================================
+# ⚙️ Environment Variables
+# ===================================
+.env
+.env.local
+.env.production
+.env.development
+/frontend/.env
+/backend/.env
+
+# ===================================
+# 🚀 Logs and Temporary Files
+# ===================================
+logs
+*.log
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+
+# ===================================
+# 🔍 OS and Editor Specific
+# ===================================
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ===================================
+# 🧩 Vite and React Artifacts
+# ===================================
+frontend/.vite/
+frontend/dist/
+frontend/node_modules/
+
+# ===================================
+# ⚙️ Backend Artifacts
+# ===================================
+backend/node_modules/
+backend/uploads/
+backend/.cache/
+backend/debug.log
+
+# ===================================
+# 🧠 Miscellaneous
+# ===================================
+*.env.*
+coverage/
+.envrc

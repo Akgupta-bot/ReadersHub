@@ -1,0 +1,160 @@
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* 🌗 Smooth Theme Transitions */
+body {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.navbar {
+  transition: background-color 0.4s ease;
+}
+
+/* ✨ Cards and Containers */
+.card {
+  border-radius: 12px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* 🌙 Dark mode support for cards */
+body.bg-dark .card {
+  background-color: #1f1f1f;
+  color: #f1f1f1;
+  border: 1px solid #333;
+}
+
+body.bg-dark .card .btn-outline-primary {
+  color: #f1f1f1;
+  border-color: #999;
+}
+
+body.bg-dark .card .btn-outline-primary:hover {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+/* 🎨 Buttons */
+.btn {
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* 🧾 Form inputs */
+.form-control, .form-select {
+  border-radius: 8px;
+}
+
+/* 💬 Hover for Links */
+a {
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #0d6efd;
+}
+/* 🌙 Bootstrap Theme Overrides for Dark Mode */
+body.bg-dark {
+  background-color: #121212 !important;
+  color: #f8f9fa !important;
+}
+
+/* 🌙 Navbar dark mode */
+body.bg-dark .navbar {
+  background-color: #1f1f1f !important;
+  border-bottom: 1px solid #333;
+}
+
+/* 🌙 Footer */
+body.bg-dark footer {
+  background-color: #1f1f1f !important;
+  color: #ccc !important;
+}
+
+/* 🌙 Cards */
+body.bg-dark .card {
+  background-color: #1e1e1e !important;
+  border: 1px solid #333;
+  color: #f1f1f1 !important;
+}
+
+body.bg-dark .card .btn-outline-primary {
+  border-color: #888;
+  color: #ccc;
+}
+
+body.bg-dark .card .btn-outline-primary:hover {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+/* 🌙 Buttons */
+body.bg-dark .btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+body.bg-dark .btn-outline-primary {
+  color: #f8f9fa;
+  border-color: #bbb;
+}
+
+body.bg-dark .btn-outline-primary:hover {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+/* 🌙 Alerts */
+body.bg-dark .alert {
+  background-color: #1f1f1f;
+  border-color: #333;
+  color: #f8f9fa;
+}
+
+/* 🌙 Form controls */
+body.bg-dark .form-control,
+body.bg-dark .form-select {
+  background-color: #1f1f1f;
+  border-color: #444;
+  color: #f8f9fa;
+}
+
+body.bg-dark .form-control:focus,
+body.bg-dark .form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* 🌙 Input placeholders */
+body.bg-dark ::placeholder {
+  color: #aaa !important;
+}
+
+/* 🌙 Table */
+body.bg-dark table {
+  background-color: #1e1e1e;
+  color: #f8f9fa;
+}
+
+/* 🌙 Pagination */
+body.bg-dark .page-link {
+  background-color: #1e1e1e;
+  color: #f8f9fa;
+  border-color: #333;
+}
+
+body.bg-dark .page-link:hover {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+/* 🌙 Modal support (if you add modals later) */
+body.bg-dark .modal-content {
+  background-color: #1f1f1f;
+  color: #f8f9fa;
+  border: 1px solid #333;
+}

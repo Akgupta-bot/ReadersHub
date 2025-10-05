@@ -1,0 +1,70 @@
+/* 🌟 Modern Signup Page Styling */
+
+.signup-wrapper {
+  min-height: 90vh;
+  background: linear-gradient(
+    135deg,
+    var(--light-bg),
+    rgba(13, 110, 253, 0.1)
+  );
+  transition: background 0.4s ease;
+}
+
+body.bg-dark .signup-wrapper {
+  background: linear-gradient(
+    135deg,
+    var(--dark-bg),
+    rgba(13, 110, 253, 0.15)
+  );
+}
+
+.signup-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--card-light);
+  border-radius: 16px;
+  transition: all 0.4s ease;
+}
+
+body.bg-dark .signup-card {
+  background: var(--card-dark);
+  color: var(--text-light);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.signup-card h2 {
+  font-size: 1.8rem;
+}
+
+.form-floating > .form-control {
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+body.bg-dark .form-floating > .form-control {
+  background: #1e1e1e;
+  color: var(--text-light);
+  border-color: #333;
+}
+
+.form-floating > .form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+}
+
+.btn {
+  border-radius: 12px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(13, 110, 253, 0.3);
+}
+
+.alert {
+  border-radius: 10px;
+  font-size: 0.9rem;
+}

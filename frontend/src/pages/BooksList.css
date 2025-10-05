@@ -1,0 +1,65 @@
+/* 🌟 Modern Books List UI */
+
+.filter-bar {
+  border-radius: 16px;
+  background: var(--card-light);
+  transition: all 0.3s ease;
+}
+
+body.bg-dark .filter-bar {
+  background: var(--card-dark);
+  color: var(--text-light);
+  border: 1px solid #333;
+}
+
+.filter-bar input,
+.filter-bar select {
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.filter-bar input:focus,
+.filter-bar select:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+}
+
+/* 📚 Book Cards */
+.book-card {
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(13, 110, 253, 0.15);
+}
+
+body.bg-dark .book-card {
+  background: var(--card-dark);
+  color: var(--text-light);
+  border: 1px solid #333;
+}
+
+.book-card .card-title a {
+  color: var(--accent-color);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.book-card .card-title a:hover {
+  color: #0b5ed7;
+}
+
+/* Pagination buttons */
+.page-btn {
+  border-radius: 10px;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+.page-btn:hover {
+  transform: scale(1.05);
+}

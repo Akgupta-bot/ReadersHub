@@ -1,0 +1,41 @@
+.home-wrapper {
+  min-height: 90vh;
+  background: linear-gradient(
+    135deg,
+    var(--light-bg) 0%,
+    rgba(13, 110, 253, 0.05) 100%
+  );
+  transition: background 0.4s ease;
+}
+
+body.bg-dark .home-wrapper {
+  background: linear-gradient(
+    135deg,
+    var(--dark-bg) 0%,
+    rgba(13, 110, 253, 0.15) 100%
+  );
+}
+
+.home-content h1 {
+  font-size: 2.8rem;
+  background: linear-gradient(90deg, #0d6efd, #4e9af1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home-content p {
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.home-content .btn {
+  border-radius: 50px;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-content .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(13, 110, 253, 0.3);
+}
