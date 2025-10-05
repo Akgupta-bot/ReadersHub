@@ -13,7 +13,7 @@ import BookDetails from "./pages/BookDetails";
 import "./App.css";
 
 function App() {
-  // 🌙 Manage dark mode globally
+  
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem("theme") === "dark";
   });
@@ -21,7 +21,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(() => !!localStorage.getItem("token"));
   const navigate = useNavigate();
 
-  // 🌓 Handle dark mode persistence
+
   useEffect(() => {
     document.body.className = darkMode ? "bg-dark text-light" : "bg-light text-dark";
     localStorage.setItem("theme", darkMode ? "dark" : "light");
@@ -29,21 +29,21 @@ function App() {
 
   const toggleTheme = () => setDarkMode(!darkMode);
 
-  // 🔐 Handle logout
+  
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
-    navigate("/login"); // 👈 React-router navigation (no refresh)
+    navigate("/login"); 
   };
 
-  // Re-check login status when app mounts
+  
   useEffect(() => {
     setIsLoggedIn(!!localStorage.getItem("token"));
   }, []);
 
   return (
     <>
-      {/* 🌐 Navbar */}
+    
       <nav
         className={`navbar navbar-expand-lg ${
           darkMode ? "navbar-dark bg-dark" : "navbar-light bg-white"
@@ -63,7 +63,7 @@ function App() {
               Add Book
             </Link>
 
-            {/* 🔐 Auth Buttons */}
+            
             {isLoggedIn ? (
               <button
                 onClick={handleLogout}
@@ -94,7 +94,7 @@ function App() {
               </>
             )}
 
-            {/* 🌗 Theme Toggle */}
+            
             <div className="form-check form-switch ms-3">
               <input
                 className="form-check-input"
@@ -116,7 +116,7 @@ function App() {
         </div>
       </nav>
 
-      {/* 🧱 Page Content */}
+      
       <div
         style={{
           minHeight: "100vh",
@@ -149,7 +149,7 @@ function App() {
   );
 }
 
-// 👇 Wrap with BrowserRouter here to allow useNavigate to work properly
+
 export default function AppWrapper() {
   return (
     <BrowserRouter>

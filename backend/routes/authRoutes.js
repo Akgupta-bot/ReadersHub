@@ -20,7 +20,7 @@ router.post("/register",async(req,res)=>{
     const token = jwt.sign(
       { id: newUser._id },
       process.env.JWT_SECRET,
-      { expiresIn: "7d" } // expires in 7 days
+      { expiresIn: "7d" } 
     );
     res.status(201).json({
       message: "User registered successfully",
@@ -35,37 +35,35 @@ router.post("/register",async(req,res)=>{
      res.status(500).json({message:"Server Error",error:error.message})
 }
 })
-// login route
-// ---------- LOGIN USER ----------
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // 1️⃣ Validate input
+    
     if (!email || !password) {
       return res.status(400).json({ message: "Please provide email and password" });
     }
 
-    // 2️⃣ Check if user exists
+  
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    // 3️⃣ Compare entered password with hashed password
+    
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    // 4️⃣ Generate JWT token
+    
     const token = jwt.sign(
       { id: user._id },
       process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
 
-    // 5️⃣ Send response (without password)
+    
     res.status(200).json({
       message: "Login successful",
       token,

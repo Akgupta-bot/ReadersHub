@@ -39,7 +39,7 @@ const AddBook = () => {
         year: "",
       });
 
-      // Optional: redirect back to books list
+      
       setTimeout(() => {
         window.location.href = "/books";
       }, 1500);

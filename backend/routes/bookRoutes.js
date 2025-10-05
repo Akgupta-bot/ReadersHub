@@ -1,11 +1,11 @@
-// backend/routes/bookRoutes.js
+
 const express = require("express");
 const Book = require("../models/Book");
 const protect = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
-// ---------- ADD A NEW BOOK ----------
+
 router.post("/", protect, async (req, res) => {
   try {
     const { title, author, description, genre, year } = req.body;
@@ -20,7 +20,7 @@ router.post("/", protect, async (req, res) => {
       description,
       genre,
       year,
-      addedBy: req.user._id, // comes from token middleware
+      addedBy: req.user._id, 
     });
 
     res.status(201).json({ message: "Book added successfully", book });
@@ -29,7 +29,7 @@ router.post("/", protect, async (req, res) => {
   }
 });
 
-// ---------- GET ALL BOOKS (with pagination) ----------
+
 router.get("/", async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
@@ -38,7 +38,7 @@ router.get("/", async (req, res) => {
 
     const total = await Book.countDocuments();
     const books = await Book.find()
-      .populate("addedBy", "name email") // show user info
+      .populate("addedBy", "name email") 
       .skip(skip)
       .limit(limit)
       .sort({ createdAt: -1 });
@@ -53,8 +53,6 @@ router.get("/", async (req, res) => {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 });
-
-// ---------- GET SINGLE BOOK BY ID ----------
 router.get("/:id", async (req, res) => {
   try {
     const book = await Book.findById(req.params.id).populate("addedBy", "name email");
@@ -67,8 +65,6 @@ router.get("/:id", async (req, res) => {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 });
-
-// ---------- UPDATE BOOK (only creator) ----------
 router.put("/:id", protect, async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
@@ -86,7 +82,7 @@ router.put("/:id", protect, async (req, res) => {
   }
 });
 
-// ---------- DELETE BOOK (only creator) ----------
+
 router.delete("/:id", protect, async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);

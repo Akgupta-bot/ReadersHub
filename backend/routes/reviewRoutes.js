@@ -5,30 +5,28 @@ const protect = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
-// ---------- ADD REVIEW ----------
 router.post("/:bookId", protect, async (req, res) => {
   try {
     const { rating, reviewText } = req.body;
     const bookId = req.params.bookId;
 
-    // 1️⃣ Validate rating
+    
     if (!rating || rating < 1 || rating > 5) {
       return res.status(400).json({ message: "Rating must be between 1 and 5" });
     }
 
-    // 2️⃣ Check if book exists
+    
     const book = await Book.findById(bookId);
     if (!book) {
       return res.status(404).json({ message: "Book not found" });
     }
 
-    // 3️⃣ Check if user already reviewed this book
     const existingReview = await Review.findOne({ bookId, userId: req.user._id });
     if (existingReview) {
       return res.status(400).json({ message: "You already reviewed this book" });
     }
 
-    // 4️⃣ Create review
+    
     const review = await Review.create({
       bookId,
       userId: req.user._id,
@@ -42,7 +40,7 @@ router.post("/:bookId", protect, async (req, res) => {
   }
 });
 
-// ---------- GET ALL REVIEWS FOR A BOOK + AVG RATING ----------
+
 router.get("/:bookId", async (req, res) => {
   try {
     const bookId = req.params.bookId;
@@ -51,7 +49,7 @@ router.get("/:bookId", async (req, res) => {
       .populate("userId", "name email")
       .sort({ createdAt: -1 });
 
-    // Calculate average rating
+    
     const avgRating = reviews.length
       ? (reviews.reduce((acc, cur) => acc + cur.rating, 0) / reviews.length).toFixed(1)
       : 0;
@@ -66,7 +64,7 @@ router.get("/:bookId", async (req, res) => {
   }
 });
 
-// ---------- UPDATE REVIEW (only the review’s author) ----------
+
 router.put("/:id", protect, async (req, res) => {
   try {
     const review = await Review.findById(req.params.id);
@@ -86,7 +84,7 @@ router.put("/:id", protect, async (req, res) => {
   }
 });
 
-// ---------- DELETE REVIEW ----------
+
 router.delete("/:id", protect, async (req, res) => {
   try {
     const review = await Review.findById(req.params.id);
@@ -102,7 +100,7 @@ router.delete("/:id", protect, async (req, res) => {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 });
-// 📊 Get average rating for a specific book
+
 router.get("/average/:bookId", async (req, res) => {
   try {
     const bookId = req.params.bookId;

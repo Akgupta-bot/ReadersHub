@@ -25,8 +25,8 @@ const bookSchema = new mongoose.Schema({
     required: true
   },
   addedBy: {
-    type: mongoose.Schema.Types.ObjectId,   // Reference to a user
-    ref: "User",                            // from the User model
+    type: mongoose.Schema.Types.ObjectId,   
+    ref: "User",                            
     required: true
   }
 }, { timestamps: true });

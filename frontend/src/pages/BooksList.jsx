@@ -11,7 +11,7 @@ const BooksList = () => {
   const [yearFilter, setYearFilter] = useState("");
   const [ratingFilter, setRatingFilter] = useState("");
 
-  // 📚 Fetch books
+
   const fetchBooks = async () => {
     try {
       setLoading(true);
@@ -29,7 +29,7 @@ const BooksList = () => {
     fetchBooks();
   }, []);
 
-  // 🔍 Filter books dynamically
+  
   useEffect(() => {
     let filtered = [...books];
 
@@ -93,7 +93,7 @@ const BooksList = () => {
         </div>
       </div>
 
-      {/* 📚 Book Grid */}
+      
       {loading ? (
         <div className="text-center mt-5">
           <div className="spinner-border text-primary" role="status"></div>
